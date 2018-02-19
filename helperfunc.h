@@ -31,13 +31,6 @@ struct info getProcNames(std::string pname)
     {
         std::string path = p.string();
         std::string pid = path.substr(6,std::string::npos);
-        std::string pathtocheck = "/proc/" + pid + "/root";
-        DIR *dir = opendir(pathtocheck.c_str());
-        if(dir == NULL)
-        {
-            continue;
-        }
-        
         std::ifstream filee(path + "/status");
         std::string dataline;
         if(filee.good())
